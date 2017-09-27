@@ -1,0 +1,23 @@
+{
+  "name": "ardoq-bot",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "ardoq-js-client": "file:///Users/magnulf/Projects/ardoq-js-client",
+    "markdown": "^0.5.0",
+    "slack-client": "1.x",
+    "superscript": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0"
+  },
+  "scripts": {
+    "build": "babel src --presets babel-preset-es2015 --out-dir lib",
+    "parse": "parse -f",
+    "start-telnet": "npm run build && node lib/server-telnet.js",
+    "start-slack": "npm run parse && npm run build && node lib/server-slack.js",
+    "debug": "npm run parse && npm run build && DEBUG=*,-Utils node lib/server-slack.js",
+    "dev": "npm run parse && npm run build && node lib/server-slac.js"
+  }
+}
